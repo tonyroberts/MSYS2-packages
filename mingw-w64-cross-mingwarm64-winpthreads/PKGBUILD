@@ -18,10 +18,12 @@ optdepends=()
 backup=()
 options=('!strip' '!buildflags' 'staticlibs' '!emptydirs' '!buildflags')
 _commit='41a713605cd1630eec5622b4b16e847c0df65a7f'
-source=("mingw-w64"::"git+https://github.com/Windows-on-ARM-Experiments/mingw-woarm64.git#commit=$_commit"
-        0001-Define-__-de-register_frame_info-in-fake-libgcc_s.patch)
-sha256sums=('db619494079c0cc8b27547fdc28496a228060e9c78f374129b5947742bb1d9f7'
-            '2e779bcc60a1422b23e0cfdb5c0f6851f2382592bb4675d08a6bdef78d5e5c10')
+source=("mingw-w64"::"git+https://github.com/Windows-on-ARM-Experiments/mingw-woarm64.git#branch=woarm64"
+        0001-Define-__-de-register_frame_info-in-fake-libgcc_s.patch
+        9998-add-mno-outline-atomics.patch)
+sha256sums=('SKIP'
+            '2e779bcc60a1422b23e0cfdb5c0f6851f2382592bb4675d08a6bdef78d5e5c10'
+            'SKIP')
 msys2_references=(
   'archlinux: mingw-w64-winpthreads'
   'cpe: cpe:/a:mingw-w64:mingw-w64'
@@ -30,6 +32,8 @@ msys2_references=(
 prepare() {
   cd "$srcdir/mingw-w64"
   git apply "${srcdir}"/0001-Define-__-de-register_frame_info-in-fake-libgcc_s.patch
+  patch -Nbp1 -i "${srcdir}"/9998-add-mno-outline-atomics.patch
+
   cd "${srcdir}"/mingw-w64/mingw-w64-libraries/winpthreads
   autoreconf -vfi
 }
