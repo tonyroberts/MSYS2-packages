@@ -17,8 +17,8 @@ groups=("${_mingw_suff}-toolchain" "${_mingw_suff}")
 makedepends=('git' 'autotools')
 options=('!strip' '!libtool' '!emptydirs' '!buildflags')
 _commit='41a713605cd1630eec5622b4b16e847c0df65a7f'
-source=("mingw-w64"::"git+https://github.com/Windows-on-ARM-Experiments/mingw-woarm64.git#commit=$_commit")
-sha256sums=('db619494079c0cc8b27547fdc28496a228060e9c78f374129b5947742bb1d9f7')
+source=("mingw-w64"::"git+https://github.com/Windows-on-ARM-Experiments/mingw-woarm64.git#branch=woarm64")
+sha256sums=('SKIP')
 msys2_references=(
   'archlinux: mingw-w64-headers'
   'cpe: cpe:/a:mingw-w64:mingw-w64'
