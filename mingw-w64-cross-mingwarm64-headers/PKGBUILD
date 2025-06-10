@@ -47,7 +47,8 @@ _build() {
   --prefix=/opt/${_target} \
   --enable-sdk=all \
   --with-default-win32-winnt=${_default_win32_winnt} \
-  --with-default-msvcrt=${_default_msvcrt}
+  --with-default-msvcrt=${_default_msvcrt} \
+  --enable-idl
 }
 
 _package() {
