@@ -23,7 +23,7 @@ msys2_references=(
   # doesn't exist in arch, this is the next best thing
   'archlinux: mingw-w64-headers'
 )
-_tools="gendef genidl genpeimg" #widl
+_tools="gendef genidl genpeimg widl"
 
 _build() {
   _target=$1
